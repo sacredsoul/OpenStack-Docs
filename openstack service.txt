@@ -1,0 +1,26 @@
+重启neutron服务
+systemctl restart neutron-server.service \
+  neutron-linuxbridge-agent.service neutron-dhcp-agent.service \
+  neutron-metadata-agent.service neutron-l3-agent.service
+
+
+重启nova服务
+systemctl restart openstack-nova-api.service \
+  openstack-nova-consoleauth.service openstack-nova-scheduler.service \
+  openstack-nova-conductor.service openstack-nova-novncproxy.service
+
+
+systemctl restart openstack-nova-api.service \
+  openstack-nova-consoleauth.service openstack-nova-scheduler.service \
+  openstack-nova-conductor.service openstack-nova-novncproxy.service \
+  neutron-server.service \
+  neutron-linuxbridge-agent.service neutron-dhcp-agent.service \
+  neutron-metadata-agent.service neutron-l3-agent.service
+
+
+挂载共享
+mount -t cifs -o username=LSD,password=lsd //192.168.1.167/Downloads /mnt/lsdshare/
+
+
+Sysprep
+C:\Windows\System32\sysprep\sysprep.exe /generalize /oobe /unattend:Unattend.xml
